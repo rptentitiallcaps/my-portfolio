@@ -248,13 +248,16 @@
         </div>
     </footer>
 
-    <script>
-        const slider = document.getElementById('videoSlider');
-        let index = 0;
-        setInterval(() => {
-            index = (index + 1) % 2; 
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }, 5000);
-    </script>
+   <script>
+    const slider = document.getElementById('videoSlider');
+    const slides = document.querySelectorAll('.slide'); // Lấy tất cả các slide đang có
+    const totalSlides = slides.length; // Tự động đếm số lượng video (7 cái)
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % totalSlides; // Chia lấy dư cho tổng số slide để xoay vòng chính xác
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }, 6000); // Mỗi 6 giây chuyển 1 lần để người xem kịp nhìn thumbnail
+</script>
 </body>
 </html>
