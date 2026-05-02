@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thành Trung | Director & AI Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #ffffff;
+            --accent-color: #E25822; 
+            --secondary-color: #111111;
+            --font-main: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Retro TV Scanlines */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 9999;
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Ghosted Background Image */
+        .avatar-ghost {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            background: url('d:\TRUNGSẾU\DSC02943.png') center center no-repeat;
+            background-size: contain;
+            opacity: 0.12;
+            filter: grayscale(100%) contrast(110%);
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 12vw, 7rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin-bottom: 0;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        section { padding: 100px 10%; border-top: 1px solid #1a1a1a; }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* --- PROFILE BLOCK --- */
+        .profile-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 320px;
+            border: 1px solid var(--accent-color);
+            padding: 10px;
+            background: #000;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            filter: grayscale(30%);
+            transition: 0.5s;
+        }
+
+        .profile-photo:hover img { filter: grayscale(0%); }
+
+        .about-text { flex: 1; min-width: 300px; }
+
+        /* --- SOFTWARE TAGS --- */
+        .software-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #ccc;
+        }
+
+        .tag.accent {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* --- VIDEO SLIDER --- */
+        .slider-container { overflow: hidden; width: 100%; }
+        .slider-wrapper { display: flex; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .slide { min-width: 100%; aspect-ratio: 16/9; }
+        .slide iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 10%;
+            background: #000;
+            text-align: left;
+            border-top: 2px solid var(--accent-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            font-family: var(--font-mono);
+        }
+
+        .contact-item h4 {
+            color: var(--accent-color);
+            font-size: 0.7rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .profile-container { flex-direction: column; align-items: center; text-align: center; }
+            .profile-photo { width: 100%; max-width: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="avatar-ghost"></div>
+        <p class="hero-subtitle">Director | Visual Production | AI Artist</p>
+        <h1 class="hero-title">Trung Nguyen</h1>
+        <p style="font-family: var(--font-mono); margin-top: 15px;">[ 1999 // HANOI ]</p>
+    </header>
+
+    <section id="about">
+        <h2>// Profile & Proficiency</h2>
+        <div class="profile-container">
+            <div class="profile-photo">
+                <img src="d:\TRUNGSẾU\DSC02943.png" alt="Nguyễn Thành Trung">
+            </div>
+            <div class="about-text">
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                    Với 8 năm kinh nghiệm, tôi chuyên sâu về Đạo diễn MV/TVC, Quay phim và Hậu kỳ. 
+                    Mục tiêu của tôi là kết hợp kỹ thuật truyền thống với công nghệ AI hiện đại để tạo ra những sản phẩm có bản sắc riêng.
+                </p>
+                
+                <h3 style="font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 15px; color: #888;">SOFTWARE PROFICIENCY</h3>
+                <div class="software-grid">
+                    <div class="tag">DaVinci Resolve</div>
+                    <div class="tag">Adobe Premiere</div>
+                    <div class="tag">Adobe After Effect</div>
+                    <div class="tag accent">Higgsfield AI</div>
+                    <div class="tag accent">Weavy AI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <h2>// Video Portfolio</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper" id="videoSlider">
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/O4XDCV08Rng?enablejsapi=1&origin=http://127.0.0.1:5500" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/qWzL5NPlbqM?si=7P20JgHNGBSiLEB5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/cVi656_c6rY?si=t5uaDLHY-7nKkyKr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/OM_6-e33gaE?si=9jkxIGZj0ZLPIv1f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/TkhbINynRjY?si=fmWwr7OYfp6I4-42" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/tU-UMrtmGpY?si=25xkB0QHwdlknnoy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/Du4S0webC_I?si=1fQYwfGVi_qWumde" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p>rptentitiallcaps@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>YouTube</h4>
+                <a href="https://youtube.com/@rptentitiallcaps" target="_blank">@rptentitiallcaps</a>
+            </div>
+            <div class="contact-item">
+                <h4>Facebook</h4>
+                <a href="https://fb.com/trung.seu.99" target="_blank">Nguyễn Thành Trung</a>
+            </div>
+            <div class="contact-item">
+                <h4>Mobile</h4>
+                <p>0368795555</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('videoSlider');
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % 2; 
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }, 5000);
+    </script>
+</body>
+</html>
